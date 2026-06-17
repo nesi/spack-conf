@@ -4,13 +4,13 @@ include:
     path_override_env_var: SPACK_USER_CONFIG_PATH
     path: "~/.spack"
     optional: true
-    prefer_modify: true
+    prefer_modify: false
     when: '"SPACK_DISABLE_LOCAL_CONFIG" not in env'
 
   # site configuration scope
   - name: "site"
-    path: "$spack/etc/spack/site"
-    optional: true
+    path: "/opt/nesi/spack/etc/spack-conf"
+    optional: false
 
   # system configuration scope
   - name: "system"
