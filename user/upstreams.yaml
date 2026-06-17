@@ -1,0 +1,3 @@
+upstreams:
+  mahuika:
+    install_tree: /opt/nesi/spack/zen3
