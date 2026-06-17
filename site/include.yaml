@@ -9,7 +9,7 @@ include:
 
   # site configuration scope
   - name: "site"
-    path: "/opt/nesi/spack/etc/spack-conf"
+    path: "/opt/nesi/spack/etc/spack-conf/site"
     optional: false
 
   # system configuration scope
