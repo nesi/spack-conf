@@ -10,3 +10,11 @@ if [ ! -f "${HOME}/.spack/config.yaml" ]; then
     echo '[Spack] Please run `spack list` to generate the package list, this will take several minutes'
     echo ""
 fi
+
+#Spack does not have a generic list available environments so...here is a function to do that
+spack-envlist() {
+    echo "=== Site environments ==="
+    ls /opt/nesi/spack/zen3/spack-env/ 2>/dev/null || echo "none"
+    echo "=== Your environments ==="
+    spack env list
+}
