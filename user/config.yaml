@@ -1,8 +1,11 @@
 # -------------------------------------------------------------------------
+# This is the path to the root of your Spack install tree.
+# If you do not want to clutter your homedir set this to another
+# path, eg, in /nesi/project/PROJECTID/$user/spack.  For the 
+# source_cache and misc_cache we recommend pointing to a scratch 
+# directory, eg /nesi/nobackup/PROJECTID/$user/spack-cache
+#
 config:
-  # This is the path to the root of the Spack install tree.
-  # If you do not want to clutter your homedir set this to another
-  # path, eg, in /nesi/project.  Alternatively you can create a symlink
   install_tree:
   root: /home/$user/spack
 
