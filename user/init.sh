@@ -1,12 +1,4 @@
 #!/bin/bash
-#Spack does not have a generic list available environments so...here is a function to do that
-spack-envlist() {
-    echo "=== Site environments ==="
-    ls /opt/nesi/spack/zen3/spack-env/ 2>/dev/null || echo "none"
-    echo "=== Your environments ==="
-    spack env list
-}
-
 #If a user loads Spack for the first time, yes i am assuming a lot by just testing for config.yaml
 # maybe should create and test for a hidden lockfile...
 if [ ! -f "${HOME}/.spack/config.yaml" ]; then
