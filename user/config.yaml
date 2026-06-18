@@ -7,7 +7,7 @@
 #
 config:
   install_tree:
-  root: /home/$user/spack
+  root: /home/$user/.spack
 
   build_stage: $root/spack-stage
   test_stage: $root/test
