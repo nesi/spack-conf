@@ -13,3 +13,4 @@ config:
   test_stage: $HOME/spack/test
   source_cache: $HOME/spack/cache
   misc_cache: $HOME/spack/cache
+  environments_root: $HOME/spack/spack-env
