@@ -8,7 +8,8 @@
 config:
   install_tree:
       root: $HOME/spack
-      build_stage: $HOME/spack/spack-stage
-      test_stage: $HOME/spack/test
-      source_cache: $HOME/spack/cache
-      misc_cache: $HOME/spack/cache
+  build_stage: 
+    - $HOME/spack/spack-stage
+  test_stage: $HOME/spack/test
+  source_cache: $HOME/spack/cache
+  misc_cache: $HOME/spack/cache
