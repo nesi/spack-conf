@@ -26,8 +26,11 @@ modules:
     # Where to install modules
     roots:
       lmod: /opt/nesi/spack/zen3/modules/lmod
-      tcl: /opt/nesi/spack/zen3/modules/tcl
     enable: [lmod]
     lmod:
+      hash_length: 0
+      exclude_implicits: true
+      all:
+        autoload: direct
       core_compilers:
       - gcc@11.4.1/gnj6mqjbqd7lw5zrdy2q7rqxpeegc4iv

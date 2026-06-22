@@ -1,4 +1,6 @@
 modules:
   default:
-    enable::
-      []
+    roots:
+      lmod: $HOME/spack/modules/lmod
+    lmod:
+      hash_length: 7
