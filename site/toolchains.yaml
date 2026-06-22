@@ -1,4 +1,13 @@
 toolchains:
+  foss_2026:
+    - spec: "%c=gcc@15.2.0"
+      when: "%c"
+    - spec: "%cxx=gcc@15.2.0"
+      when: "%cxx"
+    - spec: "%fortran=gcc@15.2.0"
+      when: "%fortran"
+    - spec: "%mpi=openmpi@5.0.10"
+      when: "%mpi"
   foss_2023a:
     - spec: "%c=gcc@12.3.0"
       when: "%c"
