@@ -1,7 +1,7 @@
 packages:
   gcc:
     externals:
-    - spec: gcc@11.4.1 languages:='c,c++'
+    - spec: gcc@11.5.0 languages:='c,c++'
       prefix: /usr
       extra_attributes:
         compilers:
