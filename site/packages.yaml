@@ -7,3 +7,17 @@ packages:
         compilers:
           c: /usr/bin/gcc
           cxx: /usr/bin/g++
+    - spec: gcc@12.3.0 languages:='c,c++,fortran'
+      prefix: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0
+      extra_attributes:
+        compilers:
+          c: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gcc
+          cxx: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/g++
+          fortran: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gfortran
+    - spec: gcc@15.2.0 languages:='c,c++,fortran'
+      prefix: /opt/nesi/zen3/GCCcore/15.2.0
+      extra_attributes:
+        compilers:
+          c: /opt/nesi/zen3/GCCcore/15.2.0/bin/gcc
+          cxx: /opt/nesi/zen3/GCCcore/15.2.0/bin/g++
+          fortran: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
