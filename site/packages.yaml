@@ -129,6 +129,11 @@ packages:
     - spec: ucc@1.3.0 %gcc@12.3.0
       prefix: /opt/nesi/zen3/UCC/1.3.0-GCCcore-12.3.0
     buildable: false
+  rust:
+    environment:
+      # this is needed to force a newer binutils for rust/cargo based builds
+      prepend_path:
+        PATH: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin
   libtool:
     externals:
     - spec: libtool@2.4.6
