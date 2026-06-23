@@ -34,3 +34,5 @@ modules:
         autoload: direct
       core_compilers:
       - gcc@11.5.0
+      core_specs:
+      - bat
