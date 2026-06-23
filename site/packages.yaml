@@ -1,4 +1,6 @@
 packages:
+  all:
+    compiler: [gcc@11.5.0]
   gcc:
     # gcc 11.5.0 is provided by the system, and defined as an external
     externals:
