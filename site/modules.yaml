@@ -35,4 +35,17 @@ modules:
       core_compilers:
       - gcc@11.5.0
       core_specs:
+      # Common utilities built with a non-system (aka default/external) compiler. These can co-exist and should not conflict
       - bat
+      - broot
+      - dust
+      - eza
+      - fd
+      - jnv
+      - lsd
+      - navi
+      - neovim
+      - ripgrep
+      - util-linux
+      - zellij
+      - zoxide
