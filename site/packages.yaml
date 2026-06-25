@@ -15,7 +15,6 @@ packages:
           c: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gcc
           cxx: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/g++
           fortran: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gfortran
-          as: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0/bin/as
     - spec: gcc@15.2.0 languages:='c,c++,fortran'
       prefix: /opt/nesi/zen3/GCCcore/15.2.0
       extra_attributes:
@@ -23,7 +22,6 @@ packages:
           c: /opt/nesi/zen3/GCCcore/15.2.0/bin/gcc
           cxx: /opt/nesi/zen3/GCCcore/15.2.0/bin/g++
           fortran: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
-          as: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin/as
 # Other system packages - called externals in Spack
   perl:
     externals:
@@ -111,12 +109,18 @@ packages:
       prefix: /usr
   binutils:
     externals:
-    - spec: binutils@2.40 %gcc@12.3.0
-      prefix: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0
     - spec: binutils@2.45 %gcc@15.2.0
       prefix: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0
+    - spec: binutils@2.40 %gcc@12.3.0
+      prefix: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0
     - spec: binutils@2.35.2~gold~headers
       prefix: /usr
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@2.45"]
+      - when: "%gcc@12.3.0"
+        any_of: ["@2.40"]
+    buildable: false
   ucx:
     externals:
     - spec: ucx@1.20.0 %gcc@15.2.0
