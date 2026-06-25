@@ -1,13 +1,29 @@
 packages:
   gcc:
-    # gcc compilers are defined in compilers.yaml
+    # gcc 11.5.0 is provided by the system, and defined as an external
     externals:
     - spec: gcc@11.5.0 languages:='c,c++'
       prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc
+          cxx: /usr/bin/g++
     - spec: gcc@12.3.0 languages:='c,c++,fortran'
       prefix: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0
+      extra_attributes:
+        compilers:
+          c: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gcc
+          cxx: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/g++
+          fortran: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gfortran
+          as: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0/bin/as
     - spec: gcc@15.2.0 languages:='c,c++,fortran'
       prefix: /opt/nesi/zen3/GCCcore/15.2.0
+      extra_attributes:
+        compilers:
+          c: /opt/nesi/zen3/GCCcore/15.2.0/bin/gcc
+          cxx: /opt/nesi/zen3/GCCcore/15.2.0/bin/g++
+          fortran: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
+          as: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin/as
 # Other system packages - called externals in Spack
   perl:
     externals:
