@@ -26,6 +26,18 @@ packages:
             prepend_path:
               PATH: "/opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin"
 # Other system packages - called externals in Spack
+  openblas:
+    externals:
+    - spec: openblas@0.3.32
+      prefix: /opt/nesi/zen3/OpenBLAS/0.3.32-GCC-15.2.0
+    - spec: openblas@0.3.23
+      prefix: /opt/nesi/zen3/OpenBLAS/0.3.23-GCC-12.3.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@0.3.32"]
+      - when: "%gcc@12.3.0"
+        any_of: ["@0.3.23"]
+    buildable: false
   perl:
     externals:
     - spec: perl@5.32.1~cpanm+opcode+open+shared+threads
