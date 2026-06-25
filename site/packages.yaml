@@ -22,9 +22,6 @@ packages:
           c: /opt/nesi/zen3/GCCcore/15.2.0/bin/gcc
           cxx: /opt/nesi/zen3/GCCcore/15.2.0/bin/g++
           fortran: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
-      environment:
-        prepend_path:
-          PATH: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin
 # Other system packages - called externals in Spack
   perl:
     externals:
