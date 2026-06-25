@@ -32,6 +32,20 @@ modules:
       exclude_implicits: true
       all:
         autoload: direct
+      broot:
+        autoload: none
+      dust:
+        autoload: none
+      eza:
+        autoload: none
+      jnv:
+        autoload: none
+      lsd:
+        autoload: none
+      navi:
+        autoload: none
+      zellij:
+        autoload: none
       core_compilers:
       - gcc@11.5.0
       core_specs:
