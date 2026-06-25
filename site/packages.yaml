@@ -109,12 +109,12 @@ packages:
       prefix: /usr
   binutils:
     externals:
-    - spec: binutils@2.35.2~gold~headers
-      prefix: /usr
     - spec: binutils@2.40 %gcc@12.3.0
       prefix: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0
     - spec: binutils@2.45 %gcc@15.2.0
       prefix: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0
+    - spec: binutils@2.35.2~gold~headers
+      prefix: /usr
   ucx:
     externals:
     - spec: ucx@1.20.0 %gcc@15.2.0
