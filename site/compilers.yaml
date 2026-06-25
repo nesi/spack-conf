@@ -1,0 +1,23 @@
+compilers:
+- compiler:
+    spec: gcc@15.2.0
+    paths:
+      cc: /opt/nesi/zen3/GCCcore/15.2.0/bin/gcc
+      cxx: /opt/nesi/zen3/GCCcore/15.2.0/bin/g++
+      f77: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
+      fc: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
+      as: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin/as
+    operating_system: rocky9
+    target: x86_64
+    modules: []
+- compiler:
+    spec: gcc@12.3.0
+    paths:
+      cc: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gcc
+      cxx: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/g++
+      f77: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gfortran
+      fc: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gfortran
+      as: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0/bin/as
+    operating_system: rocky9
+    target: x86_64
+    modules: []
