@@ -1,5 +1,15 @@
 compilers:
 - compiler:
+    spec: gcc@11.5.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: null
+      fc: null
+    operating_system: rocky9
+    target: x86_64
+    modules: []
+- compiler:
     spec: gcc@15.2.0
     paths:
       cc: /opt/nesi/zen3/GCCcore/15.2.0/bin/gcc
