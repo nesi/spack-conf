@@ -8,13 +8,6 @@ packages:
         compilers:
           c: /usr/bin/gcc
           cxx: /usr/bin/g++
-    - spec: gcc@12.3.0 languages:='c,c++,fortran'
-      prefix: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0
-      extra_attributes:
-        compilers:
-          c: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gcc
-          cxx: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/g++
-          fortran: /opt/nesi/CS400_centos7_bdw/GCCcore/12.3.0/bin/gfortran
     - spec: gcc@15.2.0 languages:='c,c++,fortran'
       prefix: /opt/nesi/zen3/GCCcore/15.2.0
       extra_attributes:
@@ -23,21 +16,91 @@ packages:
           cxx: /opt/nesi/zen3/GCCcore/15.2.0/bin/g++
           fortran: /opt/nesi/zen3/GCCcore/15.2.0/bin/gfortran
         environment:
+            # This is require to workaround an assembler (as) issue, Spack will use /usr/bin/as instead of binutils version
             prepend_path:
               PATH: "/opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0/bin"
-# Other system packages - called externals in Spack
+# Add optimised libs for GCC15
   openblas:
     externals:
-    - spec: openblas@0.3.32
+    - spec: openblas@0.3.32 %gcc@15.2.0
       prefix: /opt/nesi/zen3/OpenBLAS/0.3.32-GCC-15.2.0
-    - spec: openblas@0.3.23
-      prefix: /opt/nesi/zen3/OpenBLAS/0.3.23-GCC-12.3.0
     require:
       - when: "%gcc@15.2.0"
         any_of: ["@0.3.32"]
-      - when: "%gcc@12.3.0"
-        any_of: ["@0.3.23"]
     buildable: false
+  blis:
+    externals:
+    - spec: blis@2.0 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/BLIS/2.0-GCC-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@2.0"]
+    buildable: false
+  fftw:
+    externals:
+    - spec: fftw@3.3.10 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/FFTW/3.3.10-GCC-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@3.3.10"]
+    buildable: false
+  flexiblas:
+    externals:
+    - spec: flexiblas@3.5.0 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/FlexiBLAS/3.5.0-GCC-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@3.5.0"]
+    buildable: false
+  openmpi:
+    externals:
+    - spec: openmpi@5.0.10 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/OpenMPI/5.0.10-GCC-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@5.0.10"]
+    buildable: false
+  gsl:
+    externals:
+    - spec: gsl@2.8 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/GSL/2.8-GCC-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@2.8"]
+  gmp:
+    externals:
+    - spec: gmp@6.3.0 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/GMP/6.3.0-GCCcore-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@6.3.0"]
+  binutils:
+    externals:
+    - spec: binutils@2.45 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0
+    - spec: binutils@2.35.2~gold~headers
+      prefix: /usr
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@2.45"]
+    buildable: false
+  ucx:
+    externals:
+    - spec: ucx@1.20.0 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/UCX/1.20.0-GCCcore-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@1.20.0"]
+    buildable: false
+  ucc:
+    externals:
+    - spec: ucc@1.7.0 %gcc@15.2.0
+      prefix: /opt/nesi/zen3/UCC/1.7.0-GCCcore-15.2.0
+    require:
+      - when: "%gcc@15.2.0"
+        any_of: ["@1.7.0"]
+    buildable: false
+# Other system packages - called externals in Spack
   perl:
     externals:
     - spec: perl@5.32.1~cpanm+opcode+open+shared+threads
@@ -122,34 +185,6 @@ packages:
     externals:
     - spec: zlib@1.2.11
       prefix: /usr
-  binutils:
-    externals:
-    - spec: binutils@2.45 %gcc@15.2.0
-      prefix: /opt/nesi/zen3/binutils/2.45-GCCcore-15.2.0
-    - spec: binutils@2.40 %gcc@12.3.0
-      prefix: /opt/nesi/CS400_centos7_bdw/binutils/2.40-GCCcore-12.3.0
-    - spec: binutils@2.35.2~gold~headers
-      prefix: /usr
-    require:
-      - when: "%gcc@15.2.0"
-        any_of: ["@2.45"]
-      - when: "%gcc@12.3.0"
-        any_of: ["@2.40"]
-    buildable: false
-  ucx:
-    externals:
-    - spec: ucx@1.20.0 %gcc@15.2.0
-      prefix: /opt/nesi/zen3/UCX/1.20.0-GCCcore-15.2.0
-    - spec: ucx@1.18.1 %gcc@12.3.0
-      prefix: /opt/nesi/zen3/UCX/1.18.1-GCCcore-12.3.0
-    buildable: false
-  ucc:
-    externals:
-    - spec: ucc@1.7.0 %gcc@15.2.0
-      prefix: /opt/nesi/zen3/UCC/1.7.0-GCCcore-15.2.0
-    - spec: ucc@1.3.0 %gcc@12.3.0
-      prefix: /opt/nesi/zen3/UCC/1.3.0-GCCcore-12.3.0
-    buildable: false
   libtool:
     externals:
     - spec: libtool@2.4.6
