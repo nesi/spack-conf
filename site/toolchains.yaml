@@ -8,15 +8,6 @@ toolchains:
       when: "%fortran"
     - spec: "%mpi=openmpi@5.0.10"
       when: "%mpi"
-  foss_2023a:
-    - spec: "%c=gcc@12.3.0"
-      when: "%c"
-    - spec: "%cxx=gcc@12.3.0"
-      when: "%cxx"
-    - spec: "%fortran=gcc@12.3.0"
-      when: "%fortran"
-    - spec: "%mpi=openmpi@4.1.5"
-      when: "%mpi"
   system:
     - spec: "%c=gcc@11.5.0"
       when: "%c"
