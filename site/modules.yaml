@@ -60,6 +60,7 @@ modules:
       - navi
       - neovim
       - ripgrep
+      - tree
       - util-linux
       - zellij
       - zoxide
