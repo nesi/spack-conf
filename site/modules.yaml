@@ -49,6 +49,7 @@ modules:
       core_compilers:
       - gcc@11.5.0
       core_specs:
+      - gcc
       # Common utilities built with a non-system (aka default/external) compiler. These can co-exist and should not conflict
       - bat
       - broot
