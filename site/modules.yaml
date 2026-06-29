@@ -60,6 +60,7 @@ modules:
       - lsd
       - navi
       - neovim
+      - rclone
       - ripgrep
       - tree
       - util-linux
